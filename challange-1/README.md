@@ -28,7 +28,7 @@ The following command used to build the application jar file >> mvn -f pom.xml c
 
 1. Once jar get build using Dockerfile we can build the docker image with below command
    docker build -t your-docker-account/reponame:tag .
-   ## Push  docker image to the docker hub
+   Push  docker image to the docker hub
    docker login  username then give the password
    docker push your-docker-account/reponame:tag
 
