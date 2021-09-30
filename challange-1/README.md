@@ -27,34 +27,22 @@ The following command used to build the application jar file >> mvn -f pom.xml c
 ### Step 2: Build the Docker image
 
 1. Once jar get build using Dockerfile we can build the docker image with below command
-   docker build -t your-docker-account/reponame:tag .
-   ## Push  docker image to the docker hub
-   docker login  username then give the password
-   docker push your-docker-account/reponame:tag
+   - docker build -t your-docker-account/reponame:tag .
+   - Push  docker image to the docker hub
+   - docker login  username then give the password
+   - docker push your-docker-account/reponame:tag
 
 2. If you want build the jar using dockerfile then use Dockerfile-multistage file.
-   docker build -f Dockerfile-multistage -t your-docker-account/reponame:tag .
+   - docker build -f Dockerfile-multistage -t your-docker-account/reponame:tag .
    
 ### Step 3: Run the docker image 
   We can directly run the docker images for the application using below command, i have already push image in my public repository.
-  docker pull docker pull psushant/demo:1.0 # Common docker image
-  docker pull psushant/demo:multistage-1.0  # multistage docker image
-  docker run -it -p 80:8080 psushant/demo:1.0
-  Type the localhost in browser.
+  - docker pull docker pull psushant/demo:1.0 # Common docker image
+  - docker pull psushant/demo:multistage-1.0  # multistage docker image
+  - docker run -it -p 80:8080 psushant/demo:1.0
+  - Type the localhost in browser.
   
 ### Step 4: Deploy the docker image on k8s 
   Just the the below command to deploy manifest file on minikube.
   kubectl apply -f microservice.yml
   kubectl apply -f service.yml
-  
-
-   
-
-
-
-
-
-
-
-
-
