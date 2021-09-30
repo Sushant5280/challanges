@@ -1,0 +1,35 @@
+#
+# Kubernetes manifest file for demo microservice
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservice-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservice-1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: microservice-1
+    spec:
+      containers:
+      - name: microservice-1
+        image: psushant/demo:1.0
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "1024Mi"
+            cpu: "2000m"
+          requests:
+            memory: "512Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 80
